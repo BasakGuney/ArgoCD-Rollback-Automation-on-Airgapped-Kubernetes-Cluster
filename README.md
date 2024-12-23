@@ -113,7 +113,7 @@ chmod 600 ~/.git-credentials
 ```
 <br>
 
-if the current commit is "Healthy" following commands slides the "Healthy" tag to the current commit, by this the we can ensure that we will rollback to the "latest" healthy commit.
+if the current commit is "Healthy" following commands slides the "Healthy" tag to the current commit, by this we can ensure that we will rollback to the "latest" healthy commit.
  ```bash
  if [ "$STATUS" == "Healthy" ]; then
    git tag -d Healthy
