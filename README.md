@@ -4,7 +4,7 @@
 >Enabling auto-rollback to the last "Healthy" commit when the app status is "Degraded".
 
 ## Path
->A customized alpine image with ArgoCD CLI and git installed in it will be created. Since our cluster doesn't have Internet access, we will make installations with binaries that we will be download using our host machine and send it to cluster. After the customized image has created, we will create an agent pod that is responsible for rollback. In the agent pod, we will check the ArgoCD status continuously if the status is "Healthy" we will tag this commit as "Healthy" using gi commands. If the app status is "Degraded" we will rollback to "Healthy" tagged commit.
+>A customized alpine image with ArgoCD CLI and git installed in it will be created. Since our cluster doesn't have Internet access, we will make installations with binaries that we will download using our host machine and send it to cluster. After the customized image has created, we will create an agent pod that is responsible for rollback. In the agent pod, we will check the ArgoCD status continuously if the status is "Healthy" we will tag this commit as "Healthy" using git commands. If the app status is "Degraded" we will rollback to latest "Healthy" tagged commit.
 
 
 ## Steps
@@ -102,7 +102,7 @@ spec:
 <br>
 <br>
 
-The following lines make credential configuration that helps ta avoid interactive login:
+The following lines make credential configuration that helps to avoid interactive login:
 
 ```bash
 git config --global user.name <username>
